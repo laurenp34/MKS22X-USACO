@@ -80,10 +80,23 @@ public class USACO {
       }
     }
 
+    while (s.hasNext()) {
+      String line = s.nextLine();
+      temp = line.split(" ");
+      int r_s=0;
+      int c_s=0;
+      int d_s = 0;
+      r_s = Integer.parseInt(temp[0]);
+      c_s = Integer.parseInt(temp[1]);
+      d_s = Integer.parseInt(temp[2]);
+      System.out.println(r_s+" "+c_s+" "+d_s);
+    }
+
+    /*
     System.out.println(r+" "+c+" "+e+" "+n);
     System.out.println(toString(land));
-    stomp(1,4,4,land);
     System.out.println(toString(land));
+    */
 
     return 0;
 
