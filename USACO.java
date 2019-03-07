@@ -93,15 +93,23 @@ public class USACO {
 
       stomp(r_s,c_s,d_s,land);
     }
-    System.out.println(toString(land));
+    //System.out.println(toString(land));
+
+    int result = 0;
+    for (int[] row: land) {
+      for (int i: row) {
+        if (e > i) {
+          result += (e-i);
+        }
+      }
+    }
+    return result * 72 * 72;
 
     /*
     System.out.println(r+" "+c+" "+e+" "+n);
     System.out.println(toString(land));
     System.out.println(toString(land));
     */
-
-    return 0;
 
 
   }
