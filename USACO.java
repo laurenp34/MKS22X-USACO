@@ -148,6 +148,16 @@ public class USACO {
         if (line.charAt(i2) == '*') land[i][i2] = -1;
       }
     }
+
+    String lastLine = s.nextLine();
+    temp = lastLine.split(" ");
+
+    r1 = Integer.parseInt(temp[0]);
+    c1 = Integer.parseInt(temp[1]);
+    r2 = Integer.parseInt(temp[2]);
+    c2 = Integer.parseInt(temp[3]);
+
+    System.out.println(r1+" "+c1+r2+c2);
     //System.out.println(toString(land));
 
     return 0;
