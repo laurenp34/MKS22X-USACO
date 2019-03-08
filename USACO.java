@@ -114,13 +114,44 @@ public class USACO {
 
   }
 
-  public static int silver(String filename) {
+  public static int silver(String filename) throws FileNotFoundException {
+    int r = 0;
+    int c = 0;
+    int t = 0;
+
+    int[][] land;
+
+
+    File f = new File(filename);
+    Scanner s = new Scanner(f);
+
+    String lineOne = s.nextLine();
+    String[] temp = lineOne.split(" ");
+
+    r = Integer.parseInt(temp[0]);
+    c = Integer.parseInt(temp[1]);
+    t = Integer.parseInt(temp[2]);
+    System.out.println("r: "+r+"c: "+c);
+
+    land = new int[r][c];
+
+    for (int i=0;i<r;i++) {
+      String line = s.nextLine();
+      System.out.println(line);
+      //System.out.println(Arrays.toString(temp));
+      for (int i2=0;i2<c;i2++) {
+        if (line.charAt(i2) == '.') land[i][i2] = 0;
+        if (line.charAt(i2) == '*') land[i][i2] = -1;
+      }
+    }
+    System.out.println(toString(land));
+
     return 0;
   }
 
   public static void main(String[] args) {
     try {
-    System.out.println(bronze("lake.txt"));
+    System.out.println(silver("land.txt"));
 
   } catch (FileNotFoundException e) {
     System.out.println("file not found");
