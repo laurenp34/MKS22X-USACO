@@ -118,6 +118,10 @@ public class USACO {
     int r = 0;
     int c = 0;
     int t = 0;
+    int r1 = 0;
+    int c1 = 0;
+    int r2 = 0;
+    int c2 = 0;
 
     int[][] land;
 
@@ -131,7 +135,7 @@ public class USACO {
     r = Integer.parseInt(temp[0]);
     c = Integer.parseInt(temp[1]);
     t = Integer.parseInt(temp[2]);
-    System.out.println("r: "+r+"c: "+c);
+    //System.out.println("r: "+r+"c: "+c);
 
     land = new int[r][c];
 
@@ -144,7 +148,7 @@ public class USACO {
         if (line.charAt(i2) == '*') land[i][i2] = -1;
       }
     }
-    System.out.println(toString(land));
+    //System.out.println(toString(land));
 
     return 0;
   }
