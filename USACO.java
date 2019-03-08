@@ -157,7 +157,40 @@ public class USACO {
     r2 = Integer.parseInt(temp[2]);
     c2 = Integer.parseInt(temp[3]);
 
-    System.out.println(r1+" "+c1+r2+c2);
+    land[r1-1][c1-1] = 1;
+    ArrayList<Integer> rows = new ArrayList<Integer>();
+    ArrayList<Integer> cols = new ArrayList<Integer>();
+
+    int[] moveR = {0,0,1,-1};
+    int[] moveC = {1,-1,0,0};
+
+    rows.add(r1-1);
+    cols.add(c1-1);
+
+    //outside array keeps track of moves taken (t)
+    for (int i=1;i<t;i++) {
+      ArrayList<Integer> rowsNow = new ArrayList<Integer>();
+      ArrayList<Integer> colsNow = new ArrayList<Integer>();
+      //inside loop keeps track of each placed move.
+      for (int i2=0;i2<rows.size();i2++) {
+        int curR = rows.get(i2);
+        int curC = cols.get(i2);
+        //this loop looks through all 4 move options.
+        for (int i3=0;i3<4;i3++) {
+          //check to see if next move is valid.
+          int newR = curR + moveR[i3];
+          int newC = curC + moveC[i3];
+          if (land[newR][newC] > 0) {
+            
+          }
+
+
+        }
+      }
+
+    }
+
+    //System.out.println(r1+" "+c1+r2+c2);
     //System.out.println(toString(land));
 
     return 0;
