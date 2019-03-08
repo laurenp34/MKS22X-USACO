@@ -120,7 +120,7 @@ public class USACO {
 
   public static void main(String[] args) {
     try {
-    bronze("lake.txt");
+    System.out.println(bronze("lake.txt"));
 
   } catch (FileNotFoundException e) {
     System.out.println("file not found");
