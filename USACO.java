@@ -183,19 +183,21 @@ public class USACO {
 
     land[r1-1][c1-1] = 1;//placed 1 @ start.
     for (int i=0;i<=t;i++) {
+      System.out.println(land);
       int[][] teemp = new int[r][c]; // this will be the next iteration of the board.
 
+      //update the temp board with next steps values.
       for (int i1=0;i1<r;i1++) {
         for (int i2=0;i2<c;i2++) {
-          if (land[i1][i2] > 0) { // this means the space isn't blocked
-            int v1 = land[i1][i2+1];
-
-            //temp[i1][i2] =
-          }
+          teemp[i1][i2] = sumFour(i1,i2,land);
         }
       }
 
+      land = teemp;
+
     }
+
+    return land[r-1][c-1];
 
 
 /*
@@ -233,10 +235,11 @@ public class USACO {
     //System.out.println(r1+" "+c1+r2+c2);
     //System.out.println(toString(land));
 
-    return 0;
+
   }
 
   public static void main(String[] args) {
+    /* SUM FOUR TEST CASES
 
     int[][] land = new int[4][4];
     int[] row1 = {0,0,1,2};
@@ -253,6 +256,7 @@ public class USACO {
     System.out.println(sumFour(1,1,land)+ " should be -1");
     System.out.println(sumFour(1,2,land)+ " should be 4");
     System.out.println(sumFour(3,0,land)+ " should be 3");
+    */
 
     try {
     System.out.println(silver("land.txt"));
