@@ -182,8 +182,8 @@ public class USACO {
     c2 = Integer.parseInt(temp[3]);
 
     land[r1-1][c1-1] = 1;//placed 1 @ start.
-    for (int i=0;i<=t;i++) {
-      System.out.println(land);
+    for (int i=0;i<t;i++) {
+      //System.out.println(toString(land));
       int[][] teemp = new int[r][c]; // this will be the next iteration of the board.
 
       //update the temp board with next steps values.
@@ -197,7 +197,9 @@ public class USACO {
 
     }
 
-    return land[r-1][c-1];
+    //System.out.println("final: "+(r2-1)+", "+(c2-1));
+    //System.out.println(toString(land));
+    return land[r2-1][c2-1];
 
 
 /*
