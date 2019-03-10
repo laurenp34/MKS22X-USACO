@@ -114,6 +114,30 @@ public class USACO {
 
   }
 
+  private int sumFour(int r, int c, int[][] land) {
+    int[] moveR = {0,0,1,-1};
+    int[] moveC = {1,-1,0,0};
+    int sum = 0;
+
+    if (land[r][c] < 0) return -1;
+
+    for (int i=0;i<4;i++) {
+      int newR = r+moveR[i];
+      int newC = c+moveC[i];
+
+      //chgeck to see if new move is in bounds
+      try {
+        if (land[newR][newC] > 0) sum += land[newR][newC];
+      } catch (IndexOutOfBoundsException e) {
+
+      }
+    }
+
+    return sum;
+
+  }
+
+
   public static int silver(String filename) throws FileNotFoundException {
     int r = 0;
     int c = 0;
@@ -157,6 +181,24 @@ public class USACO {
     r2 = Integer.parseInt(temp[2]);
     c2 = Integer.parseInt(temp[3]);
 
+    land[r1-1][c1-1] = 1;//placed 1 @ start.
+    for (int i=0;i<=t;i++) {
+      int[][] teemp = new int[r][c]; // this will be the next iteration of the board.
+
+      for (int i1=0;i1<r;i1++) {
+        for (int i2=0;i2<c;i2++) {
+          if (land[i1][i2] > 0) { // this means the space isn't blocked
+            int v1 = land[i1][i2+1];
+
+            //temp[i1][i2] =
+          }
+        }
+      }
+
+    }
+
+
+/*
     land[r1-1][c1-1] = 1;
     ArrayList<Integer> rows = new ArrayList<Integer>();
     ArrayList<Integer> cols = new ArrayList<Integer>();
@@ -166,7 +208,6 @@ public class USACO {
 
     rows.add(r1-1);
     cols.add(c1-1);
-
     //outside array keeps track of moves taken (t)
     for (int i=1;i<t;i++) {
       ArrayList<Integer> rowsNow = new ArrayList<Integer>();
@@ -181,14 +222,13 @@ public class USACO {
           int newR = curR + moveR[i3];
           int newC = curC + moveC[i3];
           if (land[newR][newC] > 0) {
-            
+            ooo
           }
 
 
         }
       }
-
-    }
+      */
 
     //System.out.println(r1+" "+c1+r2+c2);
     //System.out.println(toString(land));
@@ -197,6 +237,18 @@ public class USACO {
   }
 
   public static void main(String[] args) {
+
+    int[][] land = new int[4][4];
+    land[0] = {0,0,1,2};
+    land[1] = {1,-1,0,0};
+    land[2] = {0,2,3,1};
+    land[3] = {3,3,1,2};
+
+    System.out.println(sum4(0,0,land)+ " should be 1");
+    System.out.println(sum4(1,1,land)+ " should be -1");
+    System.out.println(sum4(0,0,land)+ " should be 1");
+    System.out.println(sum4(0,0,land)+ " should be 1");
+
     try {
     System.out.println(silver("land.txt"));
 
