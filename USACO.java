@@ -114,7 +114,7 @@ public class USACO {
 
   }
 
-  private int sumFour(int r, int c, int[][] land) {
+  private static int sumFour(int r, int c, int[][] land) {
     int[] moveR = {0,0,1,-1};
     int[] moveC = {1,-1,0,0};
     int sum = 0;
@@ -239,15 +239,20 @@ public class USACO {
   public static void main(String[] args) {
 
     int[][] land = new int[4][4];
-    land[0] = {0,0,1,2};
-    land[1] = {1,-1,0,0};
-    land[2] = {0,2,3,1};
-    land[3] = {3,3,1,2};
+    int[] row1 = {0,0,1,2};
+    int[] row2 = {1,-1,0,0};
+    int[] row3 = {0,2,3,1};
+    int[] row4 = {3,3,1,2};
 
-    System.out.println(sum4(0,0,land)+ " should be 1");
-    System.out.println(sum4(1,1,land)+ " should be -1");
-    System.out.println(sum4(0,0,land)+ " should be 1");
-    System.out.println(sum4(0,0,land)+ " should be 1");
+    land[0] = row1;
+    land[1] = row2;
+    land[2] = row3;
+    land[3] = row4;
+
+    System.out.println(sumFour(0,0,land)+ " should be 1");
+    System.out.println(sumFour(1,1,land)+ " should be -1");
+    System.out.println(sumFour(1,2,land)+ " should be 4");
+    System.out.println(sumFour(3,0,land)+ " should be 3");
 
     try {
     System.out.println(silver("land.txt"));
